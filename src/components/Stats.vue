@@ -4,7 +4,7 @@
     <h4 class="address" >Address: <br>
       test street test number London
     </h4>
-    <h2>Graph (upcoming..)</h2>
+    <h2>Spend data</h2>
     <!-- <line-chart :chartdata="chartData" :options="chartOptions"/> -->
     <line-chart></line-chart>
     <div class="diseases">
