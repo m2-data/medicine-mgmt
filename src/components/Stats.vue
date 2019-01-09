@@ -1,6 +1,6 @@
 <template>
   <div class="stats">
-    <h1 class="title" > {{ Scode }} {{returnJson[0]}}</h1>
+    <h1 class="title" >  {{returnJson[0]}}</h1>
     <h4 class="address" >Address: <br>
       test street test number London
     </h4>
