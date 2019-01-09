@@ -5,6 +5,8 @@
       test street test number London
     </h4>
     <h2>Graph (upcoming..)</h2>
+    <!-- <line-chart :chartdata="chartData" :options="chartOptions"/> -->
+    <line-chart></line-chart>
     <div class="diseases">
       <div class="drugList">
         <h3>Disease Area: {{stat[0].disease_area}}</h3>
@@ -64,8 +66,11 @@
 <script>
 import {mapGetters, mapMutations, mapActions, mapState} from 'vuex'
 import json from '../EncouragedDiscouraged.json'
+import LineChart from '../chart.js'
+
 export default {
   name: 'Stats',
+  components: { LineChart },
   data(){
     return {
       msg: '',

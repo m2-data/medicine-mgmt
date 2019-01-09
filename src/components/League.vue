@@ -1,6 +1,8 @@
 <template>
   <div class="league">
-    <h1 class="leagueInfo">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna ali...</h1>
+    <h1 class="leagueInfo">The table below uses NHS Digital Practice level prescribing data made available in accordance with the <a id="licence" target=”_blank” href="http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/" > Open Government Licence</a>.</h1>
+    <h2 class="leagueInfo">The position in the league table is based on the ratio of the monthly spend on encouraged COPD drugs over the total monthly spend on COPD drugs for each surgery, the change column indicates the positional change of the surgery compared to the previous months data.</h2>
+    <h2 class="leagueInfo">Click on the surgery name to see more detailed information on the month on month spend on encouraged and discouraged COPD drugs.</h2>
     <!-- <p><pre>this             spaced</pre></p> -->
     <!-- <p> {{names[0]}} </p> -->
     <div class='tableContain'>
@@ -144,7 +146,10 @@ html, #app, .home {
     margin: 0;
     height: 100%;
   }
-
+#licence{
+  text-decoration: underline;
+  color: #0099A8;
+}
 .router-link-exact-active{
   color: #e9434f;
 }
@@ -210,9 +215,10 @@ input {
 font-family: Futura, sans-serif;
 padding: 0 100px 0 5%;
 font-weight: normal;
-font-size: 1.5em;
+font-size: 1.3em;
 color: #0099A8;
 }
+
 .tableContain{
   overflow-x: auto;
   width: 90%;
