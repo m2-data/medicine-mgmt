@@ -1,0 +1,26 @@
+{
+  "months": [ "Jan18", "Feb18", "Mar18", "Apr18", "May18", "Jun18", "Jul18", "Aug18", "Sep18", "Oct18", "Nov18", "Dec18" ],
+  "data": [
+    {
+      "discouraged_spend": [ 1959, 1056, 2481, 2214, 2000, 1605, 2462, 2034, 2725, 2999, 1120, 1669 ],
+      "encouraged_spend": [ 2325, 3750, 2624, 3445, 4231, 3181, 2359, 2321, 2558, 4881, 2930, 2296 ],
+      "practice_code": "GP001",
+      "practice_name": "Cross Keys Surgery",
+      "spend_ratio": [ 45.72, 21.97, 255, 265, 789, 526, 852, 742, 265, 236, 951, 854 ]
+    },
+    {
+      "discouraged_spend": [ 132, 456, 255, 265, 789, 526, 852, 742, 265, 236, 951, 854 ],
+      "encouraged_spend": [ 132, 456, 255, 265, 789, 526, 852, 742, 265, 236, 951, 854 ],
+      "practice_code": "GP010",
+      "practice_name": "Wellington Practice",
+      "spend_ratio": [ 132, 456, 255, 265, 789, 526, 852, 742, 265, 236, 951, 854 ]
+    },
+    {
+      "discouraged_spend": [ 132, 456, 255, 265, 789, 526, 852, 742, 265, 236, 951, 854 ],
+      "encouraged_spend": [ 132, 456, 255, 265, 789, 526, 852, 742, 265, 236, 951, 854 ],
+      "practice_code": "GP099",
+      "practice_name": "Bedgrove Surgery",
+      "spend_ratio": [ 132, 456, 255, 265, 789, 526, 852, 742, 265, 236, 951, 854 ]
+    }
+  ]
+}

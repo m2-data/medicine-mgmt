@@ -1,0 +1,19 @@
+{
+  "tiledata": [
+    {
+      "type": "encouraged",
+      "spend": "448501.24",
+      "change": "0.18"
+    },
+    {
+      "type": "discouraged",
+      "spend": "207761.20",
+      "change": "2.59"
+    },
+    {
+      "type": "saving",
+      "spend": "89031.76",
+      "change": "-11.86"
+    }
+  ]
+}

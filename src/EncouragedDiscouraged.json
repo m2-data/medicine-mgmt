@@ -1,0 +1,15 @@
+{
+  "drugs": [
+    {
+      "disease_area": "COPD",
+      "encouraged": [ "Drug A", "Drug B", "Drub C" ],
+      "discouraged": [ "Drub D", "Drug E", "Drug F" ]
+    },
+    {
+      "disease_area": "Heart Disease",
+      "encouraged": [ "Drug G", "Drug H", "Drub I" ],
+      "discouraged": [ "Drub J", "Drug K", "Drug L" ]
+    }
+  ]
+
+}
