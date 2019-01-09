@@ -1,6 +1,7 @@
 <template>
   <div class="league">
     <h1 class="leagueInfo">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna ali...</h1>
+    <!-- <p><pre>this             spaced</pre></p> -->
     <!-- <p> {{names[0]}} </p> -->
     <div class='tableContain'>
       <table>
@@ -22,8 +23,8 @@
             <!-- <th>Total</th> -->
           </tr>
         </thead>
-          <tr class ="row" v-bind:key="name.practice_name" v-for="name in links">
-            <td v-on:click="clickedLinks($event.target)" class="companies"> <router-link class="firstRow active" to="/stats">{{name.practice_code}}  {{name.practice_name}} </router-link></td>
+          <tr class ="row" v-bind:key="name.practice_name" v-for="(name, index) in links">
+            <td v-on:click="clickedLinks($event.target)" class="companies"> <span>  {{index}} </span><router-link class="firstRow active" to="/stats">  {{name.practice_name}} </router-link></td>
             <td class="startData" v-bind:key="`${i}-${amount}`" v-for="(amount, i) in name.spend_ratio">{{amount}} </td>
           </tr>
           <tr class="totalRow">
@@ -256,6 +257,7 @@ th{
   font-weight: bolder;
   flex-shrink: 1;
   display: block;
+  padding-left: 15px;
   /* text-align: center; */
 }
 .mainTH {
@@ -281,12 +283,17 @@ th{
   box-shadow: 4px 0px 4px -0.5px rgba(0,0,0,0.4);
   padding: 16px 20px 20px 8px;
   color: #0099A8;
+  position: relative;
   /* position: absolute;
   height: 22px;
   background-color: #dddddd;
   z-index: 2;
   font-size: 0.85em; */
   /* cursor: pointer; */
+}
+
+span {
+  float: left;
 }
 /* .row:nth-child(1){
   background: white;

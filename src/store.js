@@ -36,7 +36,7 @@ export default new Vuex.Store({
     // }
     ADD_CODE: (state) => {
       state.code = ''
-      state.code = state.names[0].slice(0, 6)
+      state.code = state.names[0]
       console.log('statecode', state.code)
       // console.log('addcode' + state.names[0])
     },

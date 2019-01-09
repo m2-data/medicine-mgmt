@@ -1,6 +1,6 @@
 <template>
   <div class="stats">
-    <h1 class="title" >{{returnJson[0]}}</h1>
+    <h1 class="title" > {{ Scode }} {{returnJson[0]}}</h1>
     <h4 class="address" >Address: <br>
       test street test number London
     </h4>
@@ -73,17 +73,19 @@ export default {
       discouraged: '',
       name: '',
       ratio: '',
-      stat: json.drugs
+      stat: json.drugs,
+      Scode: ''
     }
   },
   created (){
     console.log('created')
     for (var i = 0; i < this.links.length; i++){
-        if (this.code == this.links[i].practice_code) {
+        if (this.code == this.links[i].practice_name) {
           this.encouraged = this.links[i].encouraged_spend
           this.discouraged = this.links[i].discouraged_spend
           this.ratio = this.links[i].spend_ratio
-          console.log(this.encouraged, this.ratio, this.discouraged)
+          this.Scode = this.links[i].practice_code
+          //console.log(this.encouraged, this.ratio, this.discouraged)
         }
       }
     },
