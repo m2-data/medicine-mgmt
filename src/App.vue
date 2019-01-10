@@ -19,6 +19,7 @@
         </div>
         </div>
       </div>
+      <!-- <hr :class="[ grow ? 'growHr' : 'trans--grow' ]"> -->
       <hr class="divide">
       <nav class="navbar-nav">
        
@@ -36,7 +37,23 @@
     <!-- </div> -->
   </div>
 </template>
+<script>
+export default {
+  data(){
+    return {
+      grow: false
+    }
+  },
+  mounted (){
+    setTimeout(() => {
+      this.grow == true
+    //this.$el.getElementsByClassName('trans--grow')[0].className('grow');
+}, 275)
+  }
+}
 
+
+</script>
 
 
 <!-- <script> -->
@@ -73,6 +90,15 @@
   color: #e9434f;
 }
 
+.trans--grow {
+  -webkit-transition: width 1s ease-out; /* For Safari 3.1 to 6.0 */
+  transition: width 1s  ease-out;
+  width : 0%;
+}
+
+.growHr{
+    width:100%;
+}
 /* .page-enter-active, .page-leave-active {
   transition-property: opacity;
   transition-duration: .05s;

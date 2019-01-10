@@ -97,7 +97,7 @@ export default {
           this.discouraged = this.links[i].discouraged_spend
           this.ratio = this.links[i].spend_ratio
           this.Scode = this.links[i].practice_code
-          console.log(this.code, 'this')
+          // console.log(this.code, 'this')
         }
           //console.log(this.encouraged, this.discouraged)
         
@@ -159,6 +159,7 @@ export default {
   font-family: Futura, sans-serif;
   padding: 0 100px 20px 50px;
   font-weight: 400;
+  margin: 0;
 }
 .diseases{
   display: flex;
