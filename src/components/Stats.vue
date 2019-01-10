@@ -1,6 +1,7 @@
 <template>
   <div class="stats">
-    <h1 class="title" >  {{returnJson[0]}}</h1>
+    <router-link to="/league-table"><button>All Surgeries</button></router-link>
+    <h1 class="title" >  {{returnJson[0]}}  </h1> 
     <h4 class="address" >Address:
       test street test number London
     </h4>
@@ -228,9 +229,9 @@ li {
 }
 
 a {
-  color: #42b983;
+  color: #0099A8;
 }
-button {
+/* button {
     padding: 10px;
     margin-top: 30px;
     width: 100%;
@@ -238,6 +239,47 @@ button {
     border: 1px solid lightgray;
     outline: 0;
     cursor: pointer;
+} */
+
+
+button{
+  background:#0099A8;
+  color:#fff;
+  border:none;
+  position:relative;
+  height: 34px;
+  font-size: 0.8em;
+  padding:0 0.7em;
+  cursor:pointer;
+  transition:800ms ease all;
+  outline:none;
+  margin-right: 50px;
+  font-family: Futura, sans-serif;
+  float: right;
+}
+button:hover{
+  background:#fff;
+  color:#0099A8;
+}
+button:before,button:after{
+  content:'';
+  position:absolute;
+  top:0;
+  right:0;
+  height:2px;
+  width:0;
+  background: #0099A8;
+  transition:400ms ease all;
+}
+button:after{
+  right:inherit;
+  top:inherit;
+  left:0;
+  bottom:0;
+}
+button:hover:before,button:hover:after{
+  width:100%;
+  transition:800ms ease all;
 }
 
 .charty{
@@ -248,6 +290,12 @@ button {
 }
 canvas{
   margin: 25px;
+}
+
+@media screen and (max-width: 500px) {
+  button{
+    margin: 10px 0;
+  }
 }
 
 </style>
