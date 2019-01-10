@@ -3,8 +3,6 @@ import Router from 'vue-router'
 import Home from './components/Home.vue'
 import League from './components/League.vue'
 import Blog from './components/Blog.vue'
-// import Surgery from './components/Surgery.vue'
-// import Surgery1 from './components/Surgery1.vue'
 import WhitePaper from './components/WhitePaper.vue'
 import Stats from './components/Stats.vue'
 
@@ -47,5 +45,8 @@ export default new Router({
       name: 'stats',
       component: Stats
     },
-  ]
+  ],
+  scrollBehavior (to, from, savedPosition) {
+    return { x: 0, y: 0 }
+  }
 })
