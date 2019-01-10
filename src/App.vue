@@ -21,13 +21,17 @@
       </div>
       <hr class="divide">
       <nav class="navbar-nav">
-        <router-link class="active" to="/" >Home</router-link>
-        <router-link class="active" to="/league-table">League Table</router-link>
-        <router-link class="active" to="/blog">Blog</router-link>
-        <router-link class="active" to="/white-papers">White Papers</router-link>
+       
+          <router-link class="active" to="/" >Home</router-link>
+          <router-link class="active" to="/league-table">League Table</router-link>
+          <router-link class="active" to="/blog">Blog</router-link>
+          <router-link class="active" to="/white-papers">White Papers</router-link>
+       
       </nav>
       <hr class="divide2">
-      <router-view /> 
+      <transition name="page" mode="out-in">
+        <router-view /> 
+      </transition>
       
     <!-- </div> -->
   </div>
@@ -68,10 +72,20 @@
 .router-link-active:not(.active){
   color: #e9434f;
 }
-/* .wrapper{
-  min-height: 100%;
-  padding-bottom: 120px;
+
+/* .page-enter-active, .page-leave-active {
+  transition-property: opacity;
+  transition-duration: .05s;
+}
+
+.page-enter-active {
+  transition-delay: .05s;
+}
+
+.page-enter, .page-leave-active {
+  opacity: 0
 } */
+
 
 
 </style>

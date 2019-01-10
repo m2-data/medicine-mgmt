@@ -39,7 +39,7 @@ export default new Vuex.Store({
     ADD_CODE: (state) => {
       state.code = ''
       state.code = state.names[0]
-      console.log('statecode', state.code)
+      //console.log('statecode', state.code)
       // console.log('addcode' + state.names[0])
     },
     CLICKED: (state, link) => {
