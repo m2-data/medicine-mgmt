@@ -10,7 +10,9 @@ export default new Vuex.Store({
     title: 'New title',
     links: json.data,
     names: [],
-    code: ''
+    code: '',
+    position: '',
+    lastpos: ''
     // links: [
     //   json.data
     //   // 'http://google.com',

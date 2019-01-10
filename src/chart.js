@@ -24,7 +24,7 @@ export default {
 //     }
 //   },
   created (){
-    console.log('created')
+    //console.log('created')
     for (var i = 0; i < this.links.length; i++){
         if (this.code == this.links[i].practice_name) {
           this.encouraged = this.links[i].encouraged_spend

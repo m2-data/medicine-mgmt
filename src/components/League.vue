@@ -26,7 +26,7 @@
           </tr>
         </thead>
           <tr class ="row" v-bind:key="name.practice_name" v-for="(name, index) in links">
-            <td v-on:click="clickedLinks($event.target)" class="companies"> <span>  {{index}} </span><router-link class="firstRow active" to="/stats">  {{name.practice_name}} </router-link></td>
+            <td v-on:click="clickedLinks($event.target)" class="companies"> <span>  {{name.position}} </span><span v-if="name.position > name.lastposition">  <img src="../assets/red triangle.png"> </span>  <span v-if="name.position < name.lastposition">  <img src="../assets/blue triangle.png"> </span> <span v-if="name.position == name.lastposition">  <p id="dot"> •</p> </span> <router-link class="firstRow active" to="/stats">  {{name.practice_name}} </router-link></td>
             <td class="startData" v-bind:key="`${i}-${amount}`" v-for="(amount, i) in name.spend_ratio">{{amount}} </td>
           <!-- </tr>
           <tr class="totalRow">
@@ -87,7 +87,7 @@ export default {
   data() {
     return {
       newLink : '',
-      name: '',
+      name: ''
     }
   },
   computed: {
@@ -124,7 +124,7 @@ export default {
     // },
     clickedLinks: function(link) {
       this.clickedLink(link.innerText)
-      console.log(link.innerText)
+      // console.log(link)
       this.codeLink(link)
     },
     // change: function(name) {
@@ -145,6 +145,10 @@ html, #app, .home {
     background-color: #F4F4F4;
     margin: 0;
     height: 100%;
+  }
+  img{
+    width: 20px;
+    padding: 0 5px;
   }
 #licence{
   text-decoration: underline;
@@ -175,11 +179,13 @@ ul {
   list-style-type: none;
   padding: 0;
 }
-ul li {
+/*ul li {
   padding: 20px;
   background: white;
   margin-bottom: 8px;
-}
+} */
+
+
 
 .right {
   grid-area: right;
@@ -288,7 +294,7 @@ th{
   -webkit-box-shadow: 4px 0px 4px -0.5px rgba(0,0,0,0.4);
   -moz-box-shadow: 4px 0px 4px -0.5px rgba(0,0,0,0.4);
   box-shadow: 4px 0px 4px -0.5px rgba(0,0,0,0.4);
-  padding: 16px 20px 20px 8px;
+  padding: 16px 40px 20px 8px;
   color: #0099A8;
   position: relative;
   /* position: absolute;
@@ -315,6 +321,15 @@ span {
 a{
   text-decoration: none;
   width: 100%;
+}
+
+#dot{
+  position: absolute;
+  font-size: 2em;
+  top: 8px;
+  left: 22px;
+  margin: 0;
+  color: gray;
 }
 
 .tableHeads{

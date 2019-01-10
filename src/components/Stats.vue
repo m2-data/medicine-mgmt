@@ -3,9 +3,9 @@
     <router-link to="/league-table"><button>All Surgeries</button></router-link>
     <h1 class="title" >  {{returnJson[0]}}  </h1> 
     <h4 class="address" >Address:
-      test street test number London
+      1 test street London NW24 5GG
     </h4>
-    <h2 class="chartTitle">Monthly spend on encouraged and discouraged data</h2>
+    <h2 class="chartTitle">Monthly spend on encouraged and discouraged drugs</h2>
     <!-- <line-chart :chartdata="chartData" :options="chartOptions"/> -->
     <div class="charty">
       <line-chart class="chart"></line-chart>
@@ -87,14 +87,14 @@ export default {
     }
   },
   created (){
-    console.log('created')
+    //console.log('created')
     for (var i = 0; i < this.links.length; i++){
         if (this.code == this.links[i].practice_name) {
           this.encouraged = this.links[i].encouraged_spend
           this.discouraged = this.links[i].discouraged_spend
           this.ratio = this.links[i].spend_ratio
           this.Scode = this.links[i].practice_code
-          console.log(this.encouraged, this.discouraged)
+          //console.log(this.encouraged, this.discouraged)
         }
       }
     },
@@ -249,6 +249,7 @@ button{
   position:relative;
   height: 34px;
   font-size: 0.8em;
+  font-weight: 500;
   padding:0 0.7em;
   cursor:pointer;
   transition:800ms ease all;
