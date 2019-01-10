@@ -80,13 +80,16 @@ export default {
       msg: '',
       encouraged: [],
       discouraged: '',
-      name: '',
       ratio: '',
       stat: json.drugs,
-      Scode: ''
+      Scode: '',
+      surgNAme: ''
     }
   },
   created (){
+    if (this.code == ''){
+      console.log('empty')
+    }
     //console.log('created')
     for (var i = 0; i < this.links.length; i++){
         if (this.code == this.links[i].practice_name) {
@@ -94,8 +97,10 @@ export default {
           this.discouraged = this.links[i].discouraged_spend
           this.ratio = this.links[i].spend_ratio
           this.Scode = this.links[i].practice_code
-          //console.log(this.encouraged, this.discouraged)
+          console.log(this.code, 'this')
         }
+          //console.log(this.encouraged, this.discouraged)
+        
       }
     },
     mounted() {
@@ -295,8 +300,21 @@ canvas{
 
 @media screen and (max-width: 500px) {
   button{
-    margin: 10px 0;
+    margin: 10px 50px;
+    float: none;
   }
+  button:hover{
+     color: inherit;
+   }
+  .charty{
+    margin: 5px;
+  }
+}
+@media (hover: none) {
+   button{
+     display: none;
+   }
+   
 }
 
 </style>

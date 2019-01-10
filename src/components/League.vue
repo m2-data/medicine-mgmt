@@ -31,7 +31,7 @@
           <!-- </tr>
           <tr class="totalRow">
             <td class="total">Total</td>
-            <!-- <td class="totalRow" v-bind:key="newData.id" v-for="newData in newJson">{{newData.id}}</td> -->
+             <td class="totalRow" v-bind:key="newData.id" v-for="newData in newJson">{{newData.id}}</td> -->
           </tr>
       </table>
     </div>
@@ -51,32 +51,6 @@
       </footer>
   </div>
 </template>
-
-
-
-
-
-<!--<template>
-  <div class="hello">
-    <div class="left">
-      <h1 v-on:click="change($event.target)"> My {{ names }} </h1>
-
-      <form @submit.prevent="addLink">
-        <input class="link-input" type="text" name="" placeholder="Add a link" v-model="newLink">
-      </form>
-      <ul>
-        <li v-on:click="removeLinks($event.target)" v-for="(link, index) in links" v-bind:key="index"> {{link.practice_name}} 
-           <button v-on:click="removeLinks($event.target)" class="rm" >Remove</button> 
-          
-        </li>
-      </ul>
-      <button><router-link to="/stats"> to stats </router-link></button>
-    </div>
-    <div class="right">
-      <stats />
-    </div>
-  </div>
-</template>-->
 
 <script>
 import {mapState, mapMutations, mapActions} from 'vuex'
@@ -113,25 +87,10 @@ export default {
       this.ADD_LINK(this.newLink)
       this.newLink = ''
     },
-    // changeN: function() {
-    //   this.updateName(this.names)
-    //   this.names = name
-    // },
-    // getName: function(name) {
-    //   this.getNames(name)
-    //   console.log(name)
-    //   this.name = name
-    // },
     clickedLinks: function(link) {
       this.clickedLink(link.innerText)
-      // console.log(link)
       this.codeLink(link)
     },
-    // change: function(name) {
-    //   this.CHANGE(name)
-    //   console.log(name.innerHTML)
-    //   this.names = name
-    // },
   }
 }
 </script>
@@ -433,6 +392,9 @@ a{
   }
   .name {
     padding: 5px 5px 5px 10px;
+  }
+  .firstRow{
+    font-size: 0.8em;
   }
 }
 </style>
