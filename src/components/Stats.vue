@@ -1,43 +1,46 @@
 <template>
   <div class="stats">
     <h1 class="title" >  {{returnJson[0]}}</h1>
-    <h4 class="address" >Address: <br>
+    <h4 class="address" >Address:
       test street test number London
     </h4>
-    <h2>Spend data</h2>
+    <h2 class="chartTitle">Monthly spend on encouraged and discouraged data</h2>
     <!-- <line-chart :chartdata="chartData" :options="chartOptions"/> -->
-    <line-chart></line-chart>
+    <div class="charty">
+      <line-chart class="chart"></line-chart>
+    </div>
     <div class="diseases">
-      <div class="drugList">
-        <h3>Disease Area: {{stat[0].disease_area}}</h3>
+      <!-- <div class="drugList"> -->
         <div class="goodBad">
-          <h4 class="drugs">Encouraged</h4>
-          <ul>
+          <h3 class="title">Disease Area: {{stat[0].disease_area}}</h3>
+          <h4 class="drugs good">Encouraged</h4>
+          <ul class="goodUl">
             <li>{{ stat[0].encouraged[0] }}</li>
             <li>{{ stat[0].encouraged[1] }}</li>
             <li>{{ stat[0].encouraged[2] }}</li>
             <li>Drug 4</li>
           </ul>
-          <h4 class="drugs">Discouraged</h4>
-          <ul>
+          <h4 class="drugs bad">Discouraged</h4>
+          <ul class="badUl">
             <li>{{ stat[0].discouraged[0] }}</li>
             <li>{{ stat[0].discouraged[1] }}</li>
             <li>{{ stat[0].discouraged[2] }}</li>
           </ul>
-        </div>
+        <!-- </div> -->
       </div>
       <div>
-        <h3>Disease Area: {{stat[1].disease_area}}</h3>
         <div class="goodBad">
-          <h4 class="drugs">Encouraged</h4>
-          <ul>
+          <h3 class="title">Disease Area: {{stat[1].disease_area}}</h3>
+        
+          <h4 class="drugs good">Encouraged</h4>
+          <ul class="goodUl">
             <li> {{ stat[1].encouraged[0] }} </li>
             <li>{{ stat[1].encouraged[1] }}</li>
             <li>{{ stat[1].encouraged[2] }}</li>
             <li>Drug 4</li>
           </ul>
-          <h4 class="drugs">Discouraged</h4>
-          <ul>
+          <h4 class="drugs bad">Discouraged</h4>
+          <ul class="badUl">
             <li>{{ stat[1].discouraged[0] }}</li>
             <li>{{ stat[1].discouraged[1] }}</li>
             <li>{{ stat[1].discouraged[2] }}</li>
@@ -90,7 +93,7 @@ export default {
           this.discouraged = this.links[i].discouraged_spend
           this.ratio = this.links[i].spend_ratio
           this.Scode = this.links[i].practice_code
-          //console.log(this.encouraged, this.ratio, this.discouraged)
+          console.log(this.encouraged, this.discouraged)
         }
       }
     },
@@ -148,32 +151,58 @@ export default {
 
 .address{
   font-family: Futura, sans-serif;
-  padding: 0 100px 0 50px;
+  padding: 0 100px 20px 50px;
+  font-weight: 400;
 }
 .diseases{
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
+  padding-bottom: 50px;
 }
 .drugs{
   font-family: Futura, sans-serif;
   padding: 5px 100px 0 50px;
 }
+
+.drugList{
+  display: flex;
+  flex-wrap: wrap;
+}
 .title{
   font-family: Futura, sans-serif;
-  padding: 0 100px 0 50px;
+  padding: 0 50px 0 50px;
   font-weight: normal;
   font-size: 1.5em;
   color: #0099A8;
 }
 
-/* .goodBad{
-  display: flex;
-} */
-h2{
+.good{
+  font-family: Futura, sans-serif;
+  font-weight: normal;
+  font-size: 1.1em;
+  color: #0099A8;
+  padding-top: 12px;
+  margin: 0;
+}
+
+.bad{
+  font-family: Futura, sans-serif;
+  font-weight: normal;
+  font-size: 1.1em;
+  color: #ff463d;
+  padding-top: 12px;
+  margin: 0;
+}
+.chartTitle{
   display: flex;
   align-items: center;
   justify-content: center;
+  font-weight: 400;
+  color:#0099A8;
+  padding-left: 50px;
+  padding-right: 20px;
 }
 h3 {
   margin: 50px 0 0;
@@ -186,6 +215,18 @@ li {
   /* display: inline-block; */
   margin: 20px 50px;
 }
+.goodUl li:before {
+  content: "•"; /* Insert content that looks like bullets */
+  padding-right: 8px;
+  color: #0099A8; /* Or a color you prefer */
+}
+
+.badUl li:before {
+  content: "•"; /* Insert content that looks like bullets */
+  padding-right: 8px;
+  color: #ff463d; /* Or a color you prefer */
+}
+
 a {
   color: #42b983;
 }
@@ -198,4 +239,15 @@ button {
     outline: 0;
     cursor: pointer;
 }
+
+.charty{
+  /* background: #092E3F; */
+  border-radius: 15px;
+  /* box-shadow: 0px 2px 15px rgba(25, 25, 25, 0.27); */
+  margin:  25px 25px;
+}
+canvas{
+  margin: 25px;
+}
+
 </style>

@@ -9,7 +9,7 @@
       <table>
         <thead class="tableHeads">
           <tr>
-            <th class="mainTH">Resp Encouraged</th>
+            <th class="mainTH">Surgery</th>
             <th class="startData">SEP 17</th>
             <th class="feb">OCT 17</th>
             <th>NOV 17</th>
@@ -28,7 +28,7 @@
           <tr class ="row" v-bind:key="name.practice_name" v-for="(name, index) in links">
             <td v-on:click="clickedLinks($event.target)" class="companies"> <span>  {{index}} </span><router-link class="firstRow active" to="/stats">  {{name.practice_name}} </router-link></td>
             <td class="startData" v-bind:key="`${i}-${amount}`" v-for="(amount, i) in name.spend_ratio">{{amount}} </td>
-          </tr>
+          <!-- </tr>
           <tr class="totalRow">
             <td class="total">Total</td>
             <!-- <td class="totalRow" v-bind:key="newData.id" v-for="newData in newJson">{{newData.id}}</td> -->
@@ -215,7 +215,7 @@ input {
 font-family: Futura, sans-serif;
 padding: 0 100px 0 5%;
 font-weight: normal;
-font-size: 1.3em;
+font-size: 1.2em;
 color: #0099A8;
 }
 
@@ -224,6 +224,7 @@ color: #0099A8;
   width: 90%;
   margin: 0 5% 2% 5%;
   padding-bottom: 20px;
+  padding-top: 20px;
 }
 table {
     border-collapse: collapse;
@@ -411,7 +412,9 @@ a{
 @media screen and (max-width: 500px) {
   .leagueInfo{
     text-align: center;
-    padding: 30px;
+    /* padding: 30px; */
+    padding-left: 50px;
+    padding-right: 50px;
   }
   .name {
     padding: 5px 5px 5px 10px;
