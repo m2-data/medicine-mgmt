@@ -5,13 +5,16 @@
     <section>
       <div id="firstVid" class="vidi">
         <p class="vidiTitle">Video 01</p>
-        <iframe width="450" height="360" src="https://www.youtube.com/embed/fhI5T_NKYxc?ecver=2" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        <!-- <iframe width="450" height="360" src="https://www.youtube.com/embed/fhI5T_NKYxc?ecver=2" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe> -->
+        <iframe width="450" height="360" src="https://www.youtube.com/embed/T1G9Rl65M-Q" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        
         <h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ...</h2>
         <hr>
       </div>
       <div id="secondVid" class="vidi">
         <p class="vidiTitle">Video 02</p>
-        <iframe width="450" height="360" src="https://www.youtube.com/embed/W9fRvESVClE?ecver=2" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        <!-- <iframe width="450" height="360" src="https://www.youtube.com/embed/W9fRvESVClE?ecver=2" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe> -->
+        <iframe width="450" height="360" src="https://www.youtube.com/embed/_KPSDorqbKY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         <h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ...</h2>
         <hr>
       </div>

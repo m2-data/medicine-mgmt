@@ -186,7 +186,7 @@ color: #0099A8;
 
 .tableContain{
   overflow-x: auto;
-  width: 90%;
+  width: 95%;
   margin: 0 5% 2% 5%;
   padding-bottom: 20px;
   padding-top: 20px;
@@ -348,7 +348,8 @@ a{
   background-color: #0099a9;
 }
 .league{
-  padding-top: 10px;
+  /* padding-top: 10px; */
+  padding: 10px;
 }
 
 
