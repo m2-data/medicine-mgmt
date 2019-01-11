@@ -2,6 +2,8 @@
   <div class="stats">
     <router-link to="/league-table"><button>All Surgeries</button></router-link>
     <h1 class="title" >  {{returnJson[0]}}  </h1> 
+    <h2 class="position"> Current position: {{position}} <span v-if="position > lastposition">  <img src="../assets/red triangle.png"> </span>  <span v-if="position < lastposition">  <img src="../assets/blue triangle.png"> </span> <span v-if="position == lastposition">  <p id="dot"> •</p> </span> 
+      <br> Previous position: {{ lastposition}}      </h2>
     <h4 class="address" >Address:
       1 test street London NW24 5GG
     </h4>
@@ -83,7 +85,9 @@ export default {
       ratio: '',
       stat: json.drugs,
       Scode: '',
-      surgNAme: ''
+      surgNAme: '',
+      pos: '',
+      lastPos: ''
     }
   },
   created (){
@@ -96,6 +100,8 @@ export default {
           this.encouraged = this.links[i].encouraged_spend
           this.discouraged = this.links[i].discouraged_spend
           this.ratio = this.links[i].spend_ratio
+          this.position = this.links[i].position
+          this.lastposition = this.links[i].lastposition
           this.Scode = this.links[i].practice_code
           // console.log(this.code, 'this')
         }
@@ -155,11 +161,27 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 
+.position{
+  font-family: Futura, sans-serif;
+  padding: 0 100px 20px 50px;
+  font-weight: 400;
+  margin: 0;
+  font-size: 1.2em;
+  line-height: 2em;
+  color: #444444;
+}
+
+img{
+  width: 25px;
+  padding-bottom: 3px;
+}
+
 .address{
   font-family: Futura, sans-serif;
   padding: 0 100px 20px 50px;
   font-weight: 400;
   margin: 0;
+  color: #444444;
 }
 .diseases{
   display: flex;
