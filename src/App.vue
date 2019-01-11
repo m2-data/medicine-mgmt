@@ -20,7 +20,9 @@
         </div>
       </div>
       <!-- <hr :class="[ grow ? 'growHr' : 'trans--grow' ]"> -->
-      <hr class="divide">
+      <div class="beforeLine">
+        <hr class="line2">
+      </div>
       <nav class="navbar-nav">
        
           <router-link class="active" to="/" >Home</router-link>
@@ -29,7 +31,9 @@
           <router-link class="active" to="/white-papers">White Papers</router-link>
        
       </nav>
-      <hr class="divide2">
+      <div class="beforeLine2">
+        <hr class="line">
+      </div>
       <transition name="page" mode="out-in">
         <router-view /> 
       </transition>
@@ -45,10 +49,16 @@ export default {
     }
   },
   mounted (){
-    setTimeout(() => {
-      this.grow == true
+    this.lines()
+  },
+  methods: {
+    lines: function() {
+      setTimeout(() => {
+      this.grow = true
+      console.log(this.grow)
     //this.$el.getElementsByClassName('trans--grow')[0].className('grow');
-}, 275)
+      }, 1000)
+    }
   }
 }
 
@@ -91,14 +101,80 @@ export default {
 }
 
 .trans--grow {
-  -webkit-transition: width 1s ease-out; /* For Safari 3.1 to 6.0 */
-  transition: width 1s  ease-out;
+  -webkit-transition: width 2s ease-out; /* For Safari 3.1 to 6.0 */
+  transition: width 2s  ease-out;
   width : 0%;
+  margin-left: 50px;
 }
 
 .growHr{
-    width:100%;
+    width:90%;
 }
+
+.line{
+  margin: 0 50px;
+}
+
+/* .line2{
+  margin: 0 50px 0 50px;
+} */
+.beforeLine {
+  margin: 30px 0;
+}
+
+.beforeLine2 {
+  margin: 0;
+}
+
+@keyframes line_animation {
+
+  from {
+      width: 0%;
+  }
+  to{
+    width: calc(100% - 100px);
+    /* left: 50px; */
+  }
+  }
+  .line {
+    /* border-bottom: solid 1px; */
+    /* border-width: 1px; */
+    left: 0;
+    
+    /* animation-name: line_animation;
+    animation-duration: 1s; */
+    animation: line_animation2 1s 1 forwards;
+    animation-timing-function: ease-in-out; 
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-family: Futura, sans-serif;
+    font-weight: lighter;
+    border-style: inset;
+  }
+
+  @keyframes line_animation2 {
+    0% {
+      width: 0%;
+    }
+    100% {
+      width: calc(100% - 100px);
+      right: 50px;
+    }
+  }
+  .line2{
+  /* border-width: 1px; */
+  position: absolute;
+  right: 0;
+  animation: line_animation2 1s 1 forwards;
+  animation-timing-function: ease-in-out; 
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: Futura, sans-serif;
+  font-weight: lighter;
+  border-style: inset;
+  }
+  
+
 /* .page-enter-active, .page-leave-active {
   transition-property: opacity;
   transition-duration: .05s;

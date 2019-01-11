@@ -27,7 +27,7 @@
         </thead>
           <tr class ="row" v-bind:key="name.practice_name" v-for="(name, index) in links">
             <td v-on:click="clickedLinks($event.target)" class="companies"> <span>  {{name.position}} </span><span v-if="name.position > name.lastposition">  <img src="../assets/red triangle.png"> </span>  <span v-if="name.position < name.lastposition">  <img src="../assets/blue triangle.png"> </span> <span v-if="name.position == name.lastposition">  <p id="dot"> •</p> </span> <router-link class="firstRow active" to="/stats">  {{name.practice_name}} </router-link></td>
-            <td class="startData" v-bind:key="`${i}-${amount}`" v-for="(amount, i) in name.spend_ratio">{{amount}} </td>
+            <td class="startData" v-bind:key="`${i}-${amount}`" v-for="(amount, i) in name.spend_ratio">{{amount}}% </td>
           <!-- </tr>
           <tr class="totalRow">
             <td class="total">Total</td>
@@ -348,7 +348,7 @@ a{
   background-color: #0099a9;
 }
 .league{
-  /* padding-bottom: 30px; */
+  padding-top: 10px;
 }
 
 

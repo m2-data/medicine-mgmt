@@ -1,5 +1,5 @@
 import { Line } from 'vue-chartjs'
-import {mapGetters, mapMutations, mapActions, mapState} from 'vuex'
+import {mapGetters, mapState} from 'vuex'
 
 
 

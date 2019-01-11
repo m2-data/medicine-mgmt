@@ -293,7 +293,8 @@ button:hover:before,button:hover:after{
   /* background: #092E3F; */
   border-radius: 15px;
   /* box-shadow: 0px 2px 15px rgba(25, 25, 25, 0.27); */
-  margin:  25px 25px;
+  margin:  25px auto;
+  max-width: 1200px;
 }
 canvas{
   margin: 25px;
