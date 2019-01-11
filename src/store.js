@@ -12,7 +12,7 @@ export default new Vuex.Store({
     names: [],
     code: '',
     position: '',
-    lastpos: ''
+    lastpos: '',
     // links: [
     //   json.data
     //   // 'http://google.com',
@@ -40,12 +40,13 @@ export default new Vuex.Store({
       state.code = ''
       state.code = state.names[0]
       //console.log('statecode', state.code)
-      // console.log('addcode' + state.names[0])
+      // console.log('addcode' + state.code)
     },
     CLICKED: (state, link) => {
       //state.links.splice(link, 1)
       state.names = []
       state.names.push(link)
+      // console.log(state.names)
 
     },
     // REMOVE_ALL: (state) => {

@@ -10,8 +10,10 @@
         <thead class="tableHeads">
           <tr>
             <th class="mainTH">Surgery</th>
+            <th class="startData" v-bind:key="index" v-for="(month, index) in months"> {{month}} </th>
+            <!-- <th class="mainTH">Surgery</th>
             <th class="startData">SEP 17</th>
-            <th class="feb">OCT 17</th>
+            <th >OCT 17</th>
             <th>NOV 17</th>
             <th>DEC 17</th>
             <th>JAN 18</th>
@@ -21,7 +23,7 @@
             <th>MAY 18</th>
             <th>JUN 18</th>
             <th>JUL 18</th>
-            <th>AUG 18</th>
+            <th>AUG 18</th> -->
             <!-- <th>Total</th> -->
           </tr>
         </thead>
@@ -54,6 +56,7 @@
 
 <script>
 import {mapState, mapMutations, mapActions} from 'vuex'
+import json from '../LeagueTable_August2018.json'
 
 
 export default {
@@ -61,7 +64,8 @@ export default {
   data() {
     return {
       newLink : '',
-      name: ''
+      name: '',
+      months: json.months
     }
   },
   computed: {

@@ -1,9 +1,14 @@
 <template>
   <div class="stats">
     <router-link to="/league-table"><button>All Surgeries</button></router-link>
-    <h1 class="title" >  {{returnJson[0]}}  </h1> 
-    <h2 class="position"> Current position: {{position}} <span v-if="position > lastposition">  <img src="../assets/red triangle.png"> </span>  <span v-if="position < lastposition">  <img src="../assets/blue triangle.png"> </span> <span v-if="position == lastposition">  <p id="dot"> •</p> </span> 
+    <h1 class="title" >  {{surgName}}  </h1> 
+    <h2 class="position"> Current position: {{position}} <span v-if="position > lastposition">  <img src="../assets/red triangle.png"> </span>  <span v-if="position < lastposition">  <img src="../assets/blue triangle.png"> </span>  
       <br> Previous position: {{ lastposition}}      </h2>
+
+    <!-- <button @click="addCode">Add Cat</button> -->
+      <!-- <span v-if="position == lastposition">  <p id="dot"> •</p> </span> -->
+
+
     <h4 class="address" >Address:
       1 test street London NW24 5GG
     </h4>
@@ -85,36 +90,76 @@ export default {
       ratio: '',
       stat: json.drugs,
       Scode: '',
-      surgNAme: '',
+      surgName: '',
       pos: '',
       lastPos: ''
     }
   },
   created (){
-    if (this.code == ''){
-      console.log('empty')
-    }
-    //console.log('created')
+    localStorage.removeItem('myCode');
     for (var i = 0; i < this.links.length; i++){
-        if (this.code == this.links[i].practice_name) {
-          this.encouraged = this.links[i].encouraged_spend
-          this.discouraged = this.links[i].discouraged_spend
-          this.ratio = this.links[i].spend_ratio
-          this.position = this.links[i].position
-          this.lastposition = this.links[i].lastposition
-          this.Scode = this.links[i].practice_code
-          // console.log(this.code, 'this')
-        }
-          //console.log(this.encouraged, this.discouraged)
-        
+      // this.surgName = this.links[i].practice_name
+      if (this.code == this.links[i].practice_name) {
+        this.surgName = this.links[i].practice_name
+        this.encouraged = this.links[i].encouraged_spend
+        this.discouraged = this.links[i].discouraged_spend
+        this.ratio = this.links[i].spend_ratio
+        this.position = this.links[i].position
+        this.lastposition = this.links[i].lastposition
+        this.Scode = this.links[i].practice_code
+        localStorage.setItem('myCode', this.surgName)
+      // } else if (this.code == ''){
+      //   console.log('empty', this.surgName)
+      //   this.surgName = localStorage.getItem('myCode')
       }
+      if (this.surgName != this.code){
+        this.surgName = localStorage.getItem('myCode')
+    }
+    // localStorage.removeItem('myCat');
+    // if (this.code == ''){
+    //   console.log('empty')
+
+    
+    // console.log('created')
+    // for (var i = 0; i < this.links.length; i++){
+    //     if (this.code == this.links[i].practice_name) {
+    //       this.surgName = this.links[i].practice_name
+    //       this.encouraged = this.links[i].encouraged_spend
+    //       this.discouraged = this.links[i].discouraged_spend
+    //       this.ratio = this.links[i].spend_ratio
+    //       this.position = this.links[i].position
+    //       this.lastposition = this.links[i].lastposition
+    //       this.Scode = this.links[i].practice_code
+    //       // console.log(this.code, 'this')
+    //     }
+    //       //console.log(this.encouraged, this.discouraged)
+        
+    //   }
+    }
     },
     mounted() {
+      if (this.code != ''){
+        //localStorage.setItem('myCode', this.surgName)
+      }
+
+      // if (localStorage.getItem('returnJson[0]')) {
+      //   try {
+      //   this.code = JSON.parse(localStorage.getItem('returnJson[0]'));
+      // } catch(e) {
+      //   localStorage.removeItem('returnJson[0]');
+      // }
+        // this.code = localStorage.code;
+    
     //console.log(this.$el.getElementsByClassName('diseases')[0].innerText) // I'm text inside the component.
     // console.log(this.$el.getElementById('dis'))
     // console.log(this.$refs.dis)
     //this.renderChart(this.chartdata, this.options)
   },
+  // watch: {
+  //   code(newCode) {
+  //     localStorage.code = newCode;
+  //   }
+  // },
   computed: {
     ...mapGetters([
       'countLinks',
@@ -141,6 +186,28 @@ export default {
         this.codeLink(this.links[i].practice_code)
       }
     },
+    // addCode() {
+    //   // ensure they actually typed something
+    //   if (!this.newCode) {
+    //     return;
+    //   }
+
+    //   this.code.push(this.newCode);
+    //   this.newCode = '';
+    //   this.saveCodes();
+    // },
+    // removeCode(x) {
+    //   this.code.splice(x, 1);
+    //   this.saveCodes();
+    // },
+    // saveCodes() {
+    //   const parsed = JSON.stringify(this.code);
+    //   localStorage.setItem('code', parsed);
+    // }
+    // persist() {
+    //   localStorage.code = this.code
+    // }
+
     // findKey: function() {
     //   for (var i = 0; i < this.links.length; i++){
     //     if (this.code == this.links[i].practice_code) {
@@ -174,6 +241,13 @@ export default {
 img{
   width: 25px;
   padding-bottom: 3px;
+}
+
+#dot{
+  font-size: 2em;
+  margin: 0;
+  display: inline-block;
+  color: gray;
 }
 
 .address{

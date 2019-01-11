@@ -143,7 +143,7 @@ export default {
     
     /* animation-name: line_animation;
     animation-duration: 1s; */
-    animation: line_animation2 1s 1 forwards;
+    animation: line_animation2 0.75s 1 forwards;
     animation-timing-function: ease-in-out; 
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -165,7 +165,7 @@ export default {
   /* border-width: 1px; */
   position: absolute;
   right: 0;
-  animation: line_animation2 1s 1 forwards;
+  animation: line_animation2 0.75s 1 forwards;
   animation-timing-function: ease-in-out; 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
