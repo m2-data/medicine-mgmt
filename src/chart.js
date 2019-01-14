@@ -31,8 +31,8 @@ export default {
         this.discouraged = this.links[i].discouraged_spend
         this.ratio = this.links[i].spend_ratio
         this.Scode = this.links[i].practice_code
-        localStorage.setItem('myEnc', this.encouraged)
-        localStorage.setItem('myDisc', this.discouraged)
+        // localStorage.setItem('myEnc', this.encouraged)
+        // localStorage.setItem('myDisc', this.discouraged)
       } else {
         this.surgName = localStorage.getItem('myCode')
         if (this.surgName == this.links[i].practice_name) {

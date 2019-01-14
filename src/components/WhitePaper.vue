@@ -7,43 +7,43 @@
         <h2>{{title}}</h2>
         <p>{{desc1}}</p>
         
-        <a target="_blank" href="http://www.africau.edu/images/default/sample.pdf" download="sample"><button type="button"><img src="../assets/downloadbtn.png"></button></a>
+        <a target="_blank" href="https://www.gov.uk/government/publications/an-outcomes-strategy-for-people-with-chronic-obstructive-pulmonary-disease-copd-and-asthma-in-england" download="sample"><button type="button"><img src="../assets/downloadbtn.png"></button></a>
       </div>
       <div class="box">
         <h2>{{title2}}</h2>
         <p>{{desc2}}</p>
-        <a target="_blank" href="http://www.africau.edu/images/default/sample.pdf" download="sample"><button type="button"><img src="../assets/downloadbtn.png"></button></a>
+        <a target="_blank" href="https://statistics.blf.org.uk/copd" download="sample"><button type="button"><img src="../assets/downloadbtn.png"></button></a>
       </div>
       <div class="box">
         <h2>{{title3}}</h2>
         <p>{{desc3}}</p>
-        <a target="_blank" href="http://www.africau.edu/images/default/sample.pdf" download="sample"><button type="button"><img src="../assets/downloadbtn.png"></button></a>
+        <a target="_blank" href="https://fingertips.phe.org.uk/documents/COPD-prevalence-model-Technical-Document-v1.2-0fc%20(1).docx" download="sample"><button type="button"><img src="../assets/downloadbtn.png"></button></a>
       </div>
       <div class="box">
         <h2>{{title4}}</h2>
         <p>{{desc4}}</p>
-        <a target="_blank" href="http://www.africau.edu/images/default/sample.pdf" download="sample"><button type="button"><img src="../assets/downloadbtn.png"></button></a>
+        <a target="_blank" href="https://www.blf.org.uk/policy/economic-burden" download="sample"><button type="button"><img src="../assets/downloadbtn.png"></button></a>
       </div>
       <div class="box">
         <h2>{{title5}}</h2>
         <p>{{desc5}}</p>
-        <a target="_blank" href="http://www.africau.edu/images/default/sample.pdf" download="sample"><button type="button"><img src="../assets/downloadbtn.png"></button></a>
+        <a target="_blank" href="https://www.england.nhs.uk/wp-content/uploads/2014/02/rm-fs-6.pdf" download="sample"><button type="button"><img src="../assets/downloadbtn.png"></button></a>
       </div>
       <div class="box">
         <h2>{{title6}}</h2>
         <p>{{desc6}}</p>
-        <a target="_blank" href="http://www.africau.edu/images/default/sample.pdf" download="sample"><button type="button"><img src="../assets/downloadbtn.png"></button></a>
+        <a target="_blank" href="https://www.nice.org.uk/guidance/ng115/documents/draft-scope" download="sample"><button type="button"><img src="../assets/downloadbtn.png"></button></a>
       </div>
       <div class="box">
         <h2>{{title7}}</h2>
         <p>{{desc7}}</p>
-        <a target="_blank" href="http://www.africau.edu/images/default/sample.pdf" download="sample"><button type="button"><img src="../assets/downloadbtn.png"></button></a>
+        <a target="_blank" href="https://thorax.bmj.com/content/63/3/187.1" download="sample"><button type="button"><img src="../assets/downloadbtn.png"></button></a>
       </div>
-      <div class="box">
+      <!-- <div class="box">
         <h2>{{title8}}</h2>
         <p> {{desc8}} </p>
         <a target="_blank" href="http://www.africau.edu/images/default/sample.pdf" download="sample"><button type="button"><img src="../assets/downloadbtn.png"></button></a>
-      </div>
+      </div> -->
      
     </section>
     <footer>
@@ -77,13 +77,13 @@ export default {
       title7: 'White paper 7',
       title8: 'White paper 8', 
 
-      desc1: 'Lorem ipsum dolor sit amet, consectetur ipum dolor sit amet, consectetur sit amet.',
-      desc2: 'Lorem ipsum dolor sit amet, consectetur ipum dolor sit amet, consectetur sit amet.',
-      desc3: 'Lorem ipsum dolor sit amet, consectetur ipum dolor sit amet, consectetur sit amet.',
-      desc4: 'Lorem ipsum dolor sit amet, consectetur ipum dolor sit amet, consectetur sit amet.',
-      desc5: 'Lorem ipsum dolor sit amet, consectetur ipum dolor sit amet, consectetur sit amet.',
-      desc6: 'Lorem ipsum dolor sit amet, consectetur ipum dolor sit amet, consectetur sit amet.',
-      desc7: 'Lorem ipsum dolor sit amet, consectetur ipum dolor sit amet, consectetur sit amet.',
+      desc1: 'Policy paper: An outcomes strategy for people with chronic obstructive pulmonary disease (COPD) and asthma in England',
+      desc2: 'BLF: Chronic obstructive pulmonary disease (COPD) statistics',
+      desc3: 'Public Health England: COPD prevalence model for small populations',
+      desc4: 'BLF: The battle for breath - the economic burden of lung disease',
+      desc5: 'NHS England: Overview of potential to reduce lives lost from Chronic Obstructive Pulmonary Disease (COPD)',
+      desc6: 'NICE: Chronic obstructive pulmonary disease in over 16s: diagnosis and management (update)',
+      desc7: 'BMJ Journal: Community care for COPD: the good, the bad and the ugly',
       desc8: 'Lorem ipsum dolor sit amet, consectetur ipum dolor sit amet, consectetur sit amet.'
     }
   }

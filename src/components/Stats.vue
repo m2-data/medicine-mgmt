@@ -8,9 +8,9 @@
     <!-- <button @click="addCode">Add Cat</button> -->
       <!-- <span v-if="position == lastposition">  <p id="dot"> •</p> </span> -->
 
-
-    <h4 class="address" >Address:
-      1 test street London NW24 5GG
+    <!-- <h4 v-bind:key="index" v-for="(addr, index) in address" > <span v-if="address.SurgeryCode == Scode">{{ addr.Address1 }} </span></h4> -->
+    <h4 class="address" > {{ addr }}
+      
     </h4>
     <h2 class="chartTitle">Monthly spend on encouraged and discouraged drugs</h2>
     <!-- <line-chart :chartdata="chartData" :options="chartOptions"/> -->
@@ -77,6 +77,7 @@
 <script>
 import {mapGetters, mapMutations, mapActions, mapState} from 'vuex'
 import json from '../EncouragedDiscouraged.json'
+import addressJson from '../SurgeryAddress.json'
 import LineChart from '../chart.js'
 
 export default {
@@ -90,11 +91,13 @@ export default {
       ratio: '',
       stat: json.drugs,
       Scode: '',
-      surgName: ''
+      surgName: '',
+      address: addressJson.data,
+      addr: ''
     }
   },
   created (){
-    //localStorage.removeItem('myCode');
+    //localStorage.removeItem('myEnc');
     for (var i = 0; i < this.links.length; i++){
       // this.surgName = this.links[i].practice_name
       if (this.code == this.links[i].practice_name) {
@@ -106,9 +109,10 @@ export default {
         this.lastposition = this.links[i].lastposition
         this.Scode = this.links[i].practice_code
         localStorage.setItem('myCode', this.surgName)
+        localStorage.setItem('mySurgCode', this.Scode)
         localStorage.setItem('myPos', this.position)
         localStorage.setItem('myLastPos', this.lastposition)
-        
+
         // localStorage.setItem('myEnc', this.encouraged)
         // localStorage.setItem('myDisc', this.discouraged)
       // } else if (this.code == ''){
@@ -118,9 +122,58 @@ export default {
         this.surgName = localStorage.getItem('myCode')
         this.position = localStorage.getItem('myPos')
         this.lastposition = localStorage.getItem('myLastPos')
-        // this.encouraged = localStorage.getItem('myEnc')
-        // this.discouraged = localStorage.getItem('myDisc')
+
+        // this.cody = localStorage.getItem('mySurgCode')
+        // for (var i = 0; i < this.address.length; i++){
+        //   if (this.cody == this.address[i].SurgeryCode){
+        //       this.addr = this.address[i].Address2 + ', '
+        //       this.addr += this.address[i].Town + ', '
+        //       this.addr += this.address[i].County + ', '
+        //       this.addr += this.address[i].Postcode + ' '
+        //   }
+        // }
+
       }
+    }
+
+    for (var i = 0; i < this.address.length; i++){
+      if (this.Scode == this.address[i].SurgeryCode) {
+        this.addr = this.address[i].Address2 + ', '
+        this.addr += this.address[i].Town + ', '
+        this.addr += this.address[i].County + ', '
+        this.addr += this.address[i].Postcode + ' '
+        localStorage.setItem('codeForAddr', this.address[i].SurgeryCode)
+        
+        console.log('this' , this.Scode)
+      } else if (this.Scode == ''){
+        this.Scode = localStorage.getItem('codeForAddr')
+      }
+      // } else {
+      //   this.Scode = localStorage.getItem('codeForAddr')
+      //   if (this.Scode == this.address[i].SurgeryCode){
+      //   this.addr = this.address[i].Address2 + ', '
+      //   this.addr += this.address[i].Town + ', '
+      //   this.addr += this.address[i].County + ', '
+      //   this.addr += this.address[i].Postcode + ' '
+      //   }
+      // }
+    }
+
+    // for (var i = 0; i < this.address.length; i++){
+    //   this.cody = localStorage.getItem('mySurgCode')
+    //   if (this.cody == this.address[i].SurgeryCode){
+    //       this.addr = this.address[i].Address2 + ', '
+    //       this.addr += this.address[i].Town + ', '
+    //       this.addr += this.address[i].County + ', '
+    //       this.addr += this.address[i].Postcode + ' '
+
+    //       //console.log(this.Scode)
+    //     }
+    //     else{
+    //       //console.log(this.addr, this.address[i].Address2, this.Scode)
+    //     }
+    // }
+
     //   if (this.surgName != this.code){
     //     this.surgName = localStorage.getItem('myCode')
     // }
@@ -144,7 +197,7 @@ export default {
     //       //console.log(this.encouraged, this.discouraged)
         
     //   }
-    }
+    
     },
     mounted() {
       if (this.code != ''){

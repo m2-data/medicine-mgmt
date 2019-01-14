@@ -8,14 +8,14 @@
         <!-- <iframe width="450" height="360" src="https://www.youtube.com/embed/fhI5T_NKYxc?ecver=2" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe> -->
         <iframe width="450" height="360" src="https://www.youtube.com/embed/T1G9Rl65M-Q" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         
-        <h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ...</h2>
+        <h2>This animation describes the causes, risk factors and common symptoms of chronic obstructive pulmonary disease (COPD), as well as how lungs with COPD function.</h2>
         <hr>
       </div>
       <div id="secondVid" class="vidi">
         <p class="vidiTitle">Video 02</p>
         <!-- <iframe width="450" height="360" src="https://www.youtube.com/embed/W9fRvESVClE?ecver=2" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe> -->
         <iframe width="450" height="360" src="https://www.youtube.com/embed/_KPSDorqbKY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        <h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ...</h2>
+        <h2>Expert pulmonologists discuss the possible side-effects of the different medications used to treat COPD.</h2>
         <hr>
       </div>
     </section>
