@@ -90,13 +90,11 @@ export default {
       ratio: '',
       stat: json.drugs,
       Scode: '',
-      surgName: '',
-      pos: '',
-      lastPos: ''
+      surgName: ''
     }
   },
   created (){
-    localStorage.removeItem('myCode');
+    //localStorage.removeItem('myCode');
     for (var i = 0; i < this.links.length; i++){
       // this.surgName = this.links[i].practice_name
       if (this.code == this.links[i].practice_name) {
@@ -108,13 +106,24 @@ export default {
         this.lastposition = this.links[i].lastposition
         this.Scode = this.links[i].practice_code
         localStorage.setItem('myCode', this.surgName)
+        localStorage.setItem('myPos', this.position)
+        localStorage.setItem('myLastPos', this.lastposition)
+        
+        // localStorage.setItem('myEnc', this.encouraged)
+        // localStorage.setItem('myDisc', this.discouraged)
       // } else if (this.code == ''){
       //   console.log('empty', this.surgName)
       //   this.surgName = localStorage.getItem('myCode')
-      }
-      if (this.surgName != this.code){
+      } else {
         this.surgName = localStorage.getItem('myCode')
-    }
+        this.position = localStorage.getItem('myPos')
+        this.lastposition = localStorage.getItem('myLastPos')
+        // this.encouraged = localStorage.getItem('myEnc')
+        // this.discouraged = localStorage.getItem('myDisc')
+      }
+    //   if (this.surgName != this.code){
+    //     this.surgName = localStorage.getItem('myCode')
+    // }
     // localStorage.removeItem('myCat');
     // if (this.code == ''){
     //   console.log('empty')

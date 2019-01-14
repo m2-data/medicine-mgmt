@@ -49,17 +49,17 @@ export default {
     }
   },
   mounted (){
-    this.lines()
+    // this.lines()
   },
-  methods: {
-    lines: function() {
-      setTimeout(() => {
-      this.grow = true
-      console.log(this.grow)
-    //this.$el.getElementsByClassName('trans--grow')[0].className('grow');
-      }, 1000)
-    }
-  }
+  // methods: {
+  //   lines: function() {
+  //     setTimeout(() => {
+  //     this.grow = true
+  //     console.log(this.grow)
+  //   //this.$el.getElementsByClassName('trans--grow')[0].className('grow');
+  //     }, 1000)
+  //   }
+  // }
 }
 
 
