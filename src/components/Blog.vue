@@ -101,6 +101,21 @@ h2{
 .rightInfo{
   padding-right: 10px;
 }
+
+@keyframes vidappear{
+    from {
+      opacity: 0;
+    } 
+    to {
+      opacity: 1; 
+    } 
+  }
+
+iframe{
+    opacity: 0;
+    animation: vidappear 1s forwards 100ms ease-out;
+  }
+
 @media screen and (max-width: 1020px) {
   footer {
     position: relative;
@@ -110,7 +125,7 @@ h2{
 
 @media screen and (max-width: 500px) {
   .blogInfo{
-    font-size: 2em;
+    font-size: 1.5em;
     text-align: center;
     padding: 20px;
   }
@@ -118,6 +133,8 @@ h2{
     width: 310px;
     height: 310px;
   }
+}
+
   h2{
     width: 310px;
   }
@@ -133,5 +150,5 @@ h2{
   section{
     padding-right: 13px;
   }
-}
+
 </style>

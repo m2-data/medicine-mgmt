@@ -194,6 +194,7 @@ color: #0099A8;
   margin: 0 5% 2% 5%;
   padding-bottom: 20px;
   padding-top: 20px;
+  animation: anim 0.5s ease;
 }
 table {
     border-collapse: collapse;
@@ -201,8 +202,20 @@ table {
     overflow-x: scroll;
     overflow-x: auto;
     width: 900px;
-
 }
+
+@keyframes anim {
+  0% {
+    opacity: 0;
+    /* transform: scaleY(0); */
+  }
+  100% {
+    /* transform: scaleY(1); */
+    opacity: 1;
+  }
+}
+
+
 
 td, th, a{
     /* border: 1px solid #dddddd; */

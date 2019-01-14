@@ -2,6 +2,7 @@
   <div class="stats">
     <router-link to="/league-table"><button>All Surgeries</button></router-link>
     <h1 class="title" >  {{surgName}}  </h1> 
+    <h4 class="address" > ADDRESS:  {{ addr }}  </h4>
     <h2 class="position"> Current position: {{position}} <span v-if="position > lastposition">  <img src="../assets/red triangle.png"> </span>  <span v-if="position < lastposition">  <img src="../assets/blue triangle.png"> </span>  
       <br> Previous position: {{ lastposition}}      </h2>
 
@@ -9,9 +10,6 @@
       <!-- <span v-if="position == lastposition">  <p id="dot"> •</p> </span> -->
 
     <!-- <h4 v-bind:key="index" v-for="(addr, index) in address" > <span v-if="address.SurgeryCode == Scode">{{ addr.Address1 }} </span></h4> -->
-    <h4 class="address" > {{ addr }}
-      
-    </h4>
     <h2 class="chartTitle">Monthly spend on encouraged and discouraged drugs</h2>
     <!-- <line-chart :chartdata="chartData" :options="chartOptions"/> -->
     <div class="charty">
@@ -290,14 +288,34 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 
+/* .stats{
+  animation: anim 0.5s ease;
+  
+} */
+
+@keyframes anim {
+  0% {
+    opacity: 0;
+    /* transform: scaleY(0); */
+  }
+  100% {
+    /* transform: scaleY(1); */
+    opacity: 1;
+  }
+}
+
 .position{
   font-family: Futura, sans-serif;
-  padding: 0 100px 20px 50px;
+  /* padding: 0 100px 20px 50px; */
+  padding: 5px 15px;
   font-weight: 400;
-  margin: 0;
+  margin: 0 0 0 50px;
   font-size: 1.2em;
   line-height: 2em;
   color: #444444;
+  border: 2px solid #0099A8;
+  width: 20%;
+  min-width: 200px;
 }
 
 img{
@@ -314,6 +332,7 @@ img{
 
 .address{
   font-family: Futura, sans-serif;
+  font-size: 0.85em;
   padding: 0 100px 20px 50px;
   font-weight: 400;
   margin: 0;
@@ -342,6 +361,7 @@ img{
   font-size: 1.5em;
   color: #0099A8;
 }
+
 
 .good{
   font-family: Futura, sans-serif;
@@ -468,6 +488,28 @@ canvas{
    }
   .charty{
     margin: 5px;
+  }
+  .title{
+    text-align: center;
+    margin: 20px 20px 10px 20px;
+    padding: 0;
+  }
+
+  .chartTitle{
+    font-size: 1.2em;
+    margin: 30px 30px 10px 30px;
+    text-align: center;
+    padding: 0;
+  }
+   .position{
+    width: 55%;
+    font-size: 1em;
+    min-width: 175px;
+    margin: auto;
+  }
+  .address{
+    padding: 0 30px 20px 30px;
+    text-align: center;
   }
 }
 @media (hover: none) {

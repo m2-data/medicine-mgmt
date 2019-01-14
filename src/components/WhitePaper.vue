@@ -249,7 +249,7 @@ button:focus:before {
 
 @media screen and (max-width: 500px) {
   .paperInfo{
-    font-size: 2em;
+    font-size: 1.5em;
     text-align: center;
     padding: 20px;
     margin-right: 5%;

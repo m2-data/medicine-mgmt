@@ -136,6 +136,41 @@ footer{
   flex-shrink: 1;
 }
 
+@keyframes appear{
+  from {
+    opacity: 0;
+    transform: translate(0, 10px);
+  } 
+  to {
+    opacity: 1; 
+    transform: translate(0, 0);
+  } 
+}
+
+/* #first{
+  opacity: 0;
+  animation: appear 0.5s forwards ease-out;
+}
+
+#second{
+  opacity: 0;
+  animation: appear 0.5s forwards 300ms ease-out;
+}
+
+#third{
+  opacity: 0;
+  animation: appear 0.5s forwards 600ms ease-out;
+} */
+
+.boxes {
+  opacity: 0;
+  animation: appear 0.6s forwards 100ms ease-out;
+}
+
+.main {
+  position: relative;
+}
+
 @media screen and (max-width: 1020px) , screen and (max-height: 850px){
   footer {
     position: relative;
