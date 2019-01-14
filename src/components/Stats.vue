@@ -316,6 +316,7 @@ export default {
   border: 2px solid #0099A8;
   width: 20%;
   min-width: 200px;
+  width: 210px;
 }
 
 img{
@@ -505,6 +506,7 @@ canvas{
     width: 55%;
     font-size: 1em;
     min-width: 175px;
+    width: 170px;
     margin: auto;
   }
   .address{
