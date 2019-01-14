@@ -113,7 +113,7 @@ th, td{
   font-family: Futura, sans-serif;
   padding: 0 50px 0 50px;
   font-weight: lighter;
-  font-size: 2.5em;
+  font-size: 2em;
   color: #0099A8;
 }
 section{

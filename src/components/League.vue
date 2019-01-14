@@ -320,23 +320,23 @@ a{
   /* position:relative; */
 }
 
-.startData:nth-child(n) {
-  /* left: -15px; */
+/* .startData:nth-child(n) {
+  left: -15px;
 }
 
 .startData:nth-child(3) {
-  /* left: -15px; */
+  left: -15px;
 }
 
 .startData:nth-child(2){
-  /* padding-left: 261px;
-  left: 121px; */
+  padding-left: 261px;
+  left: 121px;
 }
 
 .startData:last-child{
-  /* padding-right: 41px;
-  left:0; */
-}
+  padding-right: 41px;
+  left:0;
+} */
 
 /* .companies::after {
   left: 200px;

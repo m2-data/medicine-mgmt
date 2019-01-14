@@ -13,16 +13,6 @@ export default {
       discouraged: [],
     }
   },
-//   props: {
-//     chartdata: {
-//       type: Object,
-//       default: null
-//     },
-//     options: {
-//       type: Object,
-//       default: null
-//     }
-//   },
   created (){
     //console.log('created')
     for (var i = 0; i < this.links.length; i++){
@@ -31,8 +21,7 @@ export default {
         this.discouraged = this.links[i].discouraged_spend
         this.ratio = this.links[i].spend_ratio
         this.Scode = this.links[i].practice_code
-        // localStorage.setItem('myEnc', this.encouraged)
-        // localStorage.setItem('myDisc', this.discouraged)
+
       } else {
         this.surgName = localStorage.getItem('myCode')
         if (this.surgName == this.links[i].practice_name) {
@@ -42,17 +31,6 @@ export default {
       }
     }
 
-
-    // for (var i = 0; i < this.links.length; i++){
-    //     if (this.code == this.links[i].practice_name) {
-    //       this.encouraged = this.links[i].encouraged_spend
-    //       this.discouraged = this.links[i].discouraged_spend
-    //       //console.log('from chart', this.encouraged, this.discouraged)
-    //       // this.ratio = this.links[i].spend_ratio
-    //       // this.Scode = this.links[i].practice_code
-    //       //console.log(this.encouraged, this.ratio, this.discouraged)
-    //     }
-    //   }
     },
     computed: {
     ...mapGetters([

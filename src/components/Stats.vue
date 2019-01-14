@@ -11,7 +11,7 @@
 
     <!-- <h4 v-bind:key="index" v-for="(addr, index) in address" > <span v-if="address.SurgeryCode == Scode">{{ addr.Address1 }} </span></h4> -->
     <h2 class="chartTitle">Monthly spend on encouraged and discouraged drugs</h2>
-    <!-- <line-chart :chartdata="chartData" :options="chartOptions"/> -->
+
     <div class="charty">
       <line-chart class="chart"></line-chart>
     </div>
@@ -121,16 +121,6 @@ export default {
         this.position = localStorage.getItem('myPos')
         this.lastposition = localStorage.getItem('myLastPos')
 
-        // this.cody = localStorage.getItem('mySurgCode')
-        // for (var i = 0; i < this.address.length; i++){
-        //   if (this.cody == this.address[i].SurgeryCode){
-        //       this.addr = this.address[i].Address2 + ', '
-        //       this.addr += this.address[i].Town + ', '
-        //       this.addr += this.address[i].County + ', '
-        //       this.addr += this.address[i].Postcode + ' '
-        //   }
-        // }
-
       }
     }
 
@@ -141,79 +131,17 @@ export default {
         this.addr += this.address[i].County + ', '
         this.addr += this.address[i].Postcode + ' '
         localStorage.setItem('codeForAddr', this.address[i].SurgeryCode)
-        
-        console.log('this' , this.Scode)
+        // console.log('this' , this.Scode)
       } else if (this.Scode == ''){
         this.Scode = localStorage.getItem('codeForAddr')
       }
-      // } else {
-      //   this.Scode = localStorage.getItem('codeForAddr')
-      //   if (this.Scode == this.address[i].SurgeryCode){
-      //   this.addr = this.address[i].Address2 + ', '
-      //   this.addr += this.address[i].Town + ', '
-      //   this.addr += this.address[i].County + ', '
-      //   this.addr += this.address[i].Postcode + ' '
-      //   }
-      // }
     }
 
-    // for (var i = 0; i < this.address.length; i++){
-    //   this.cody = localStorage.getItem('mySurgCode')
-    //   if (this.cody == this.address[i].SurgeryCode){
-    //       this.addr = this.address[i].Address2 + ', '
-    //       this.addr += this.address[i].Town + ', '
-    //       this.addr += this.address[i].County + ', '
-    //       this.addr += this.address[i].Postcode + ' '
-
-    //       //console.log(this.Scode)
-    //     }
-    //     else{
-    //       //console.log(this.addr, this.address[i].Address2, this.Scode)
-    //     }
-    // }
-
-    //   if (this.surgName != this.code){
-    //     this.surgName = localStorage.getItem('myCode')
-    // }
-    // localStorage.removeItem('myCat');
-    // if (this.code == ''){
-    //   console.log('empty')
-
-    
-    // console.log('created')
-    // for (var i = 0; i < this.links.length; i++){
-    //     if (this.code == this.links[i].practice_name) {
-    //       this.surgName = this.links[i].practice_name
-    //       this.encouraged = this.links[i].encouraged_spend
-    //       this.discouraged = this.links[i].discouraged_spend
-    //       this.ratio = this.links[i].spend_ratio
-    //       this.position = this.links[i].position
-    //       this.lastposition = this.links[i].lastposition
-    //       this.Scode = this.links[i].practice_code
-    //       // console.log(this.code, 'this')
-    //     }
-    //       //console.log(this.encouraged, this.discouraged)
-        
-    //   }
     
     },
     mounted() {
-      if (this.code != ''){
-        //localStorage.setItem('myCode', this.surgName)
-      }
+      
 
-      // if (localStorage.getItem('returnJson[0]')) {
-      //   try {
-      //   this.code = JSON.parse(localStorage.getItem('returnJson[0]'));
-      // } catch(e) {
-      //   localStorage.removeItem('returnJson[0]');
-      // }
-        // this.code = localStorage.code;
-    
-    //console.log(this.$el.getElementsByClassName('diseases')[0].innerText) // I'm text inside the component.
-    // console.log(this.$el.getElementById('dis'))
-    // console.log(this.$refs.dis)
-    //this.renderChart(this.chartdata, this.options)
   },
   // watch: {
   //   code(newCode) {
@@ -309,7 +237,7 @@ export default {
   /* padding: 0 100px 20px 50px; */
   padding: 5px 15px;
   font-weight: 400;
-  margin: 0 0 0 50px;
+  margin: 0 0 40px 50px;
   font-size: 1.2em;
   line-height: 2em;
   color: #444444;

@@ -53,16 +53,7 @@ export default {
     return {
       data: json.tiledata
     }
-  },
-  // methods: {
-  //   addDat: function name(params) {
-  //     console.log(json);
-        
-  //   }
-
-  // }
-
-   
+  },   
 }
 
 </script>

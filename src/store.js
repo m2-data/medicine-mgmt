@@ -12,13 +12,8 @@ export default new Vuex.Store({
     names: [],
     code: '',
     position: '',
-    lastpos: '',
-    // links: [
-    //   json.data
-    //   // 'http://google.com',
-    //   // 'http://coursetro.com',
-    //   // 'http://youtube.com'
-    // ]
+    lastpos: ''
+
   },
   getters: {
     // countLinks: state => {

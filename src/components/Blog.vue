@@ -5,7 +5,6 @@
     <section>
       <div id="firstVid" class="vidi">
         <p class="vidiTitle">Video 01</p>
-        <!-- <iframe width="450" height="360" src="https://www.youtube.com/embed/fhI5T_NKYxc?ecver=2" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe> -->
         <iframe width="450" height="360" src="https://www.youtube.com/embed/T1G9Rl65M-Q" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         
         <h2>This animation describes the causes, risk factors and common symptoms of chronic obstructive pulmonary disease (COPD), as well as how lungs with COPD function.</h2>
@@ -13,7 +12,6 @@
       </div>
       <div id="secondVid" class="vidi">
         <p class="vidiTitle">Video 02</p>
-        <!-- <iframe width="450" height="360" src="https://www.youtube.com/embed/W9fRvESVClE?ecver=2" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe> -->
         <iframe width="450" height="360" src="https://www.youtube.com/embed/_KPSDorqbKY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         <h2>Expert pulmonologists discuss the possible side-effects of the different medications used to treat COPD.</h2>
         <hr>
@@ -42,7 +40,7 @@
   font-family: Futura, sans-serif;
   padding: 0 50px 0 50px;
   font-weight: lighter;
-  font-size: 2.5em;
+  font-size: 2em;
   color: #0099A8;
   margin: 20px 0 20px 1%;
 }

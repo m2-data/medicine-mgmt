@@ -90,7 +90,7 @@ export default {
 
 <style src="./main.css"></style>
 <style scoped>
-@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700');
+/* @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700'); */
 
 .router-link-exact-active{
   color: #e9434f;
