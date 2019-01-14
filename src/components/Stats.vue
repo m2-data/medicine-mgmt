@@ -503,7 +503,6 @@ canvas{
     padding: 0;
   }
    .position{
-    width: 55%;
     font-size: 1em;
     min-width: 175px;
     width: 170px;
