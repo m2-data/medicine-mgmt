@@ -131,7 +131,7 @@ iframe{
     width: 310px;
     height: 310px;
   }
-}
+
 
   h2{
     width: 310px;
@@ -148,5 +148,6 @@ iframe{
   section{
     padding-right: 13px;
   }
+}
 
 </style>
