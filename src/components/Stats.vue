@@ -1,7 +1,6 @@
 <template>
   <div class="stats">
-    <router-link to="/league-table"><button>All Surgeries</button></router-link>
-    <h1 class="title" >  {{surgName}}  </h1> 
+    <h1 class="title" >  {{surgName}}  <router-link to="/league-table"><button>Back</button></router-link> </h1> 
     <h4 class="address" > ADDRESS:  {{ addr }}  </h4>
     <h2 class="position"> Current position: {{position}} <span v-if="position > lastposition">  <img src="../assets/red triangle.png"> </span>  <span v-if="position < lastposition">  <img src="../assets/blue triangle.png"> </span>  
       <br> Previous position: {{ lastposition}}      </h2>
@@ -19,6 +18,7 @@
       <!-- <div class="drugList"> -->
         <div class="goodBad">
           <h3 class="title">Disease Area: {{stat[0].disease_area}}</h3>
+          <!-- <h4> drug{{ drugShow }} </h4> -->
           <h4 class="drugs good">Encouraged</h4>
           <ul class="goodUl">
             <li>{{ stat[0].encouraged[0] }}</li>
@@ -77,6 +77,7 @@ import {mapGetters, mapMutations, mapActions, mapState} from 'vuex'
 import json from '../EncouragedDiscouraged.json'
 import addressJson from '../SurgeryAddress.json'
 import LineChart from '../chart.js'
+import druggies from '../SpendBreakdownLevel1.json'
 
 export default {
   name: 'Stats',
@@ -91,7 +92,9 @@ export default {
       Scode: '',
       surgName: '',
       address: addressJson.data,
-      addr: ''
+      addr: '',
+      druggs: druggies.surgeries,
+      drugShow: ''
     }
   },
   created (){
@@ -123,7 +126,7 @@ export default {
 
       }
     }
-
+  // console.log(druggies.surgeries[0])
     for (var i = 0; i < this.address.length; i++){
       if (this.Scode == this.address[i].SurgeryCode) {
         this.addr = this.address[i].Address2 + ', '
@@ -134,8 +137,23 @@ export default {
         // console.log('this' , this.Scode)
       } else if (this.Scode == ''){
         this.Scode = localStorage.getItem('codeForAddr')
+        // console.log(this.Scode)
       }
     }
+  for (var i = 0; i < druggies.surgeries.length; i++){
+    this.Scode = localStorage.getItem('codeForAddr')
+    if (this.Scode == druggies.surgeries[i].practice_code) {
+      this.drugShow = druggies.surgeries[i].practice_code
+      console.log(druggies.surgeries[i].practice_code, this.drugShow)
+    }
+  }
+    // for (var i = 0; i < this.druggs.length; i++){
+    //   console.log(druggies.surgeries, this.druggs)
+      // if (this.Scode == this.druggies.surgeries[i].practice_code) {
+      //   this.druggs = this.druggies.surgeries[i].practice_code
+      // }
+    // }
+
 
     
     },
@@ -360,16 +378,17 @@ button{
   color:#fff;
   border:none;
   position:relative;
+  top: -2px;
   height: 34px;
-  font-size: 0.8em;
+  font-size: 0.7em;
   font-weight: 500;
   padding:0 0.7em;
   cursor:pointer;
   transition:800ms ease all;
   outline:none;
-  margin-right: 50px;
+  margin-left: 20px;
+  margin-right: 20px;
   font-family: Futura, sans-serif;
-  float: right;
 }
 button:hover{
   background:#fff;
@@ -378,7 +397,7 @@ button:hover{
 button:before,button:after{
   content:'';
   position:absolute;
-  top:0;
+  top: 34px;
   right:0;
   height:2px;
   width:0;
@@ -409,7 +428,7 @@ canvas{
 
 @media screen and (max-width: 500px) {
   button{
-    margin: 10px 50px;
+    margin: 10px 5px;
     float: none;
   }
   button:hover{
