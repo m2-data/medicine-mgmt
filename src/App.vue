@@ -2,7 +2,7 @@
   <div id="app">
     <!-- <div class="wrapper"> -->
       <div class="mainHeader">
-        <a class="logo" href="#/"><img id="mainLogo" src="./assets/M2logo.png" alt="M2 Data"/></a>
+        <a class="logo" ><img id="mainLogo" src="./assets/M2logo.png" alt="M2 Data"/></a>
         <div class="headerSection">
           <div class="infoData">
             <div id="address">
