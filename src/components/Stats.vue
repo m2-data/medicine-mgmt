@@ -17,8 +17,27 @@
     <div class="diseases">
       <!-- <div class="drugList"> -->
         <div class="goodBad">
-          <h3 class="title">Disease Area: {{stat[0].disease_area}}</h3>
-          <!-- <h4> drug{{ drugShow }} </h4> -->
+          <table>
+            <thead class="tableHeads">
+              <tr>
+                <th class="drugs good">Encouraged</th>
+              </tr>
+              <tr>
+                <th class="mainTH">Drug name</th>
+                <th class="startData" v-bind:key="index" v-for="(month, index) in monthss"> {{month}} </th>
+              </tr>
+            </thead>
+              <tr class ="row" v-bind:key="index" v-for="(encouragedName, index) in drugShow">
+                <td class="companies" > {{encouragedName.drugname}} </td>
+                <!-- <td class="startData" v-bind:key="`${i}-${amount}`" v-for="(amount, i) in name.spend_ratio">{{amount}}% </td> -->
+              </tr>
+            </table>
+
+
+
+
+          <!-- <h3 class="title">Disease Area: {{stat[0].disease_area}}</h3> -->
+          <!-- <h4> drug{{ drugShow }} </h4>
           <h4 class="drugs good">Encouraged</h4>
           <ul class="goodUl">
             <li>{{ stat[0].encouraged[0] }}</li>
@@ -31,12 +50,12 @@
             <li>{{ stat[0].discouraged[0] }}</li>
             <li>{{ stat[0].discouraged[1] }}</li>
             <li>{{ stat[0].discouraged[2] }}</li>
-          </ul>
+          </ul> -->
         <!-- </div> -->
       </div>
       <div>
         <div class="goodBad">
-          <h3 class="title">Disease Area: {{stat[1].disease_area}}</h3>
+          <!-- <h3 class="title">Disease Area: {{stat[1].disease_area}}</h3> -->
         
           <h4 class="drugs good">Encouraged</h4>
           <ul class="goodUl">
@@ -92,9 +111,11 @@ export default {
       Scode: '',
       surgName: '',
       address: addressJson.data,
+      monthss: druggies.months,
       addr: '',
       druggs: druggies.surgeries,
-      drugShow: ''
+      drugShow: [],
+      drug: []
     }
   },
   created (){
@@ -143,10 +164,18 @@ export default {
   for (var i = 0; i < druggies.surgeries.length; i++){
     this.Scode = localStorage.getItem('codeForAddr')
     if (this.Scode == druggies.surgeries[i].practice_code) {
-      this.drugShow = druggies.surgeries[i].practice_code
-      console.log(druggies.surgeries[i].practice_code, this.drugShow)
+      this.drugShow = druggies.surgeries[i].encouraged
+       console.log(druggies.surgeries[i].practice_code, this.drugShow)
+      // this.drugShow = druggies.surgeries[i].encouraged
+
+      //console.log(druggies.surgeries[i].practice_code, this.drugShow)
     }
   }
+
+    for(var j = 0; j < this.drugShow; j++){
+      this.drug = druggies.surgeries[j]
+      console.log(this.drug, 'thiss')
+    }
     // for (var i = 0; i < this.druggs.length; i++){
     //   console.log(druggies.surgeries, this.druggs)
       // if (this.Scode == this.druggies.surgeries[i].practice_code) {
