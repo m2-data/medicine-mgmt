@@ -512,6 +512,9 @@ canvas{
   button:hover{
      color: inherit;
    }
+   .name{
+      text-align: center;
+   }
   .charty{
     margin: 5px;
   }
