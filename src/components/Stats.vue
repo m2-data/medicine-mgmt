@@ -20,18 +20,34 @@
           <table>
             <thead class="tableHeads">
               <tr>
-                <th class="drugs good">Encouraged</th>
+                <th class="drugs good" colspan="13">Encouraged</th>
               </tr>
               <tr>
-                <th class="mainTH">Drug name</th>
-                <th class="startData" v-bind:key="index" v-for="(month, index) in monthss"> {{month}} </th>
+                <th class="drugnameHead">Drug name</th>
+                <th class="months" v-bind:key="index" v-for="(month, index) in monthss"> {{month}} </th>
               </tr>
             </thead>
               <tr class ="row" v-bind:key="index" v-for="(encouragedName, index) in drugShow">
-                <td class="companies" > {{encouragedName.drugname}} </td>
-                <!-- <td class="startData" v-bind:key="`${i}-${amount}`" v-for="(amount, i) in name.spend_ratio">{{amount}}% </td> -->
+                <td class="drugnames" > {{encouragedName.drugname}} </td>
+                <td class="drugData" v-bind:key="`${i}-${amount}`" v-for="(amount, i) in spendOnDrug"> £{{amount}} </td>
               </tr>
             </table>
+            <table>
+              <thead class="tableHeads">
+                <tr>
+                  <th class="drugs bad" colspan="13">Discouraged</th>
+                </tr>
+                <tr>
+                  <th class="drugnameHead">Drug name</th>
+                  <th v-bind:key="index" v-for="(month, index) in monthss"> {{month}} </th>
+                </tr>
+              </thead>
+                <tr class ="row" v-bind:key="index" v-for="(discouragedName, index) in badDrug">
+                  <td class="badNames" > {{discouragedName.drugname}} </td>
+                  <td class="drugData" v-bind:key="`${i}-${amount}`" v-for="(amount, i) in spendOnDrug"> £{{amount}} </td>
+                </tr>
+            </table>
+            
 
 
 
@@ -52,25 +68,6 @@
             <li>{{ stat[0].discouraged[2] }}</li>
           </ul> -->
         <!-- </div> -->
-      </div>
-      <div>
-        <div class="goodBad">
-          <!-- <h3 class="title">Disease Area: {{stat[1].disease_area}}</h3> -->
-        
-          <h4 class="drugs good">Encouraged</h4>
-          <ul class="goodUl">
-            <li> {{ stat[1].encouraged[0] }} </li>
-            <li>{{ stat[1].encouraged[1] }}</li>
-            <li>{{ stat[1].encouraged[2] }}</li>
-            <li>Drug 4</li>
-          </ul>
-          <h4 class="drugs bad">Discouraged</h4>
-          <ul class="badUl">
-            <li>{{ stat[1].discouraged[0] }}</li>
-            <li>{{ stat[1].discouraged[1] }}</li>
-            <li>{{ stat[1].discouraged[2] }}</li>
-          </ul>
-        </div>
       </div>
     </div>
     <!-- <button v-on:click="removeAllLinks">Remove all Links</button> -->
@@ -115,7 +112,9 @@ export default {
       addr: '',
       druggs: druggies.surgeries,
       drugShow: [],
-      drug: []
+      spendOnDrug: [],
+      discuragedSpend: [],
+      badDrug: [],
     }
   },
   created (){
@@ -165,36 +164,25 @@ export default {
     this.Scode = localStorage.getItem('codeForAddr')
     if (this.Scode == druggies.surgeries[i].practice_code) {
       this.drugShow = druggies.surgeries[i].encouraged
-       console.log(druggies.surgeries[i].practice_code, this.drugShow)
-      // this.drugShow = druggies.surgeries[i].encouraged
-
-      //console.log(druggies.surgeries[i].practice_code, this.drugShow)
+      this.badDrug = druggies.surgeries[i].discouraged
+      //console.log(druggies.surgeries[i].practice_code, this.drugShow, this.badDrug)
+      for (var j = 0; j < this.drugShow.length; j++){
+        //this.drug = this.drugShow[j].drugname
+        this.spendOnDrug = this.drugShow[j].spend
+        //console.log(j, this.drugShow[j].drugname, this.drugShow[j].spend)
+      }
+      for (var j = 0; j < this.badDrug.length; j++){
+        //this.badDrugName = this.badDrug[j].drugname
+        this.spendOnDrug = this.badDrug[j].spend
+        //console.log(j, this.badDrug[j].spend)
+      }
     }
-  }
-
-    for(var j = 0; j < this.drugShow; j++){
-      this.drug = druggies.surgeries[j]
-      console.log(this.drug, 'thiss')
-    }
-    // for (var i = 0; i < this.druggs.length; i++){
-    //   console.log(druggies.surgeries, this.druggs)
-      // if (this.Scode == this.druggies.surgeries[i].practice_code) {
-      //   this.druggs = this.druggies.surgeries[i].practice_code
-      // }
-    // }
-
-
-    
+  }  
     },
     mounted() {
       
 
   },
-  // watch: {
-  //   code(newCode) {
-  //     localStorage.code = newCode;
-  //   }
-  // },
   computed: {
     ...mapGetters([
       'countLinks',
@@ -279,6 +267,57 @@ export default {
   }
 }
 
+table{
+  /* table-layout: fixed; */
+  width: 100%;
+  margin-top: 50px;
+  border-spacing: 0;
+}
+
+.goodBad{
+  overflow-x: auto;
+  margin: 10px 50px 20px 50px;
+}
+
+th {
+    font-family: Futura, sans-serif;
+    font-size: 1em;
+    font-weight: normal;
+}
+.drugData{
+  text-align: center;
+}
+th, td { 
+  text-align: left; 
+  padding: 0.8em;
+  border-bottom: 1px solid rgba(148, 148, 148, 0.08);
+}
+
+.drugnames{
+  width: 300px;
+  display: block;
+  color: #0099A8;
+  font-weight: 400;
+}
+
+.badNames{
+  width: 300px;
+  display: block;
+  color: #ff463d;
+  font-weight: 400;
+}
+
+.months{
+  height: 30px;
+  vertical-align: bottom;
+}
+
+.drugnameHead{
+  height: 30px;
+  vertical-align: bottom;
+  font-weight: 500;
+}
+
 .position{
   font-family: Futura, sans-serif;
   /* padding: 0 100px 20px 50px; */
@@ -342,19 +381,25 @@ img{
 .good{
   font-family: Futura, sans-serif;
   font-weight: normal;
-  font-size: 1.1em;
+  font-size: 1.5em;
   color: #0099A8;
   padding-top: 12px;
   margin: 0;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #0099A8;
+  text-align: center;
 }
 
 .bad{
   font-family: Futura, sans-serif;
   font-weight: normal;
-  font-size: 1.1em;
+  font-size: 1.5em;
   color: #ff463d;
   padding-top: 12px;
   margin: 0;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #ff463d;
+  text-align: center;
 }
 .chartTitle{
   display: flex;
