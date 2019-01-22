@@ -396,6 +396,7 @@ a{
   }
   .name {
     padding: 5px 5px 5px 10px;
+    text-align: center;
   }
   .firstRow{
     font-size: 0.8em;

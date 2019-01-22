@@ -29,7 +29,7 @@
             </thead>
               <tr class ="row" v-bind:key="index" v-for="(encouragedName, index) in drugShow">
                 <td class="drugnames" > {{encouragedName.drugname}} </td>
-                <td class="drugData" v-bind:key="`${i}-${amount}`" v-for="(amount, i) in spendOnDrug"> £{{amount}} </td>
+                <td class="drugData" v-bind:key="`${i}-${amount}`" v-for="(amount, i) in encouragedName.spend"> £{{amount}} </td>
               </tr>
             </table>
             <table>
@@ -39,12 +39,12 @@
                 </tr>
                 <tr>
                   <th class="drugnameHead">Drug name</th>
-                  <th v-bind:key="index" v-for="(month, index) in monthss"> {{month}} </th>
+                  <th class="months" v-bind:key="index" v-for="(month, index) in monthss"> {{month}} </th>
                 </tr>
               </thead>
                 <tr class ="row" v-bind:key="index" v-for="(discouragedName, index) in badDrug">
                   <td class="badNames" > {{discouragedName.drugname}} </td>
-                  <td class="drugData" v-bind:key="`${i}-${amount}`" v-for="(amount, i) in spendOnDrug"> £{{amount}} </td>
+                  <td class="drugData" v-bind:key="`${i}-${amount}`" v-for="(amount, i) in discouragedName.spend"> £{{amount}} </td>
                 </tr>
             </table>
             
@@ -165,16 +165,16 @@ export default {
     if (this.Scode == druggies.surgeries[i].practice_code) {
       this.drugShow = druggies.surgeries[i].encouraged
       this.badDrug = druggies.surgeries[i].discouraged
-      //console.log(druggies.surgeries[i].practice_code, this.drugShow, this.badDrug)
+      //console.log(druggies.surgeries[i].practice_code, this.Scode, this.drugShow, this.badDrug)
       for (var j = 0; j < this.drugShow.length; j++){
         //this.drug = this.drugShow[j].drugname
         this.spendOnDrug = this.drugShow[j].spend
-        //console.log(j, this.drugShow[j].drugname, this.drugShow[j].spend)
+        //console.log(this.drugShow[j].spend, 'drugshow')
       }
-      for (var j = 0; j < this.badDrug.length; j++){
+      for (var z = 0; z < this.badDrug.length; z++){
         //this.badDrugName = this.badDrug[j].drugname
-        this.spendOnDrug = this.badDrug[j].spend
-        //console.log(j, this.badDrug[j].spend)
+        this.discuragedSpend = this.badDrug[z].spend
+        //console.log(this.badDrug[z].spend, 'baddrug', this.discuragedSpend)
       }
     }
   }  
@@ -305,17 +305,21 @@ th, td {
   display: block;
   color: #ff463d;
   font-weight: 400;
+  /* border-right: 1px solid #ff463d; */
 }
+
 
 .months{
   height: 30px;
-  vertical-align: bottom;
+  text-align: center;
+  /* vertical-align: bottom; */
 }
 
 .drugnameHead{
   height: 30px;
-  vertical-align: bottom;
+  /* vertical-align: bottom; */
   font-weight: 500;
+  
 }
 
 .position{
@@ -386,8 +390,8 @@ img{
   padding-top: 12px;
   margin: 0;
   padding-bottom: 20px;
+  padding-left: 0;
   border-bottom: 1px solid #0099A8;
-  text-align: center;
 }
 
 .bad{
@@ -398,8 +402,8 @@ img{
   padding-top: 12px;
   margin: 0;
   padding-bottom: 20px;
+  padding-left: 0;
   border-bottom: 1px solid #ff463d;
-  text-align: center;
 }
 .chartTitle{
   display: flex;
@@ -533,6 +537,10 @@ canvas{
     padding: 0 30px 20px 30px;
     text-align: center;
   }
+  .goodBad{
+  overflow-x: auto;
+  margin: 10px 20px 20px 20px;
+}
 }
 @media (hover: none) {
    button{

@@ -126,6 +126,7 @@ iframe{
     font-size: 1.5em;
     text-align: center;
     padding: 20px;
+    margin: 0;
   }
   iframe{
     width: 310px;
@@ -144,6 +145,7 @@ iframe{
   }
   .name {
     padding: 5px 5px 5px 10px;
+    text-align: center;
   }
   section{
     padding-right: 13px;

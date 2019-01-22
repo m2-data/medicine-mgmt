@@ -252,10 +252,11 @@ button:focus:before {
     font-size: 1.5em;
     text-align: center;
     padding: 20px;
-    margin-right: 5%;
+    margin: 0;
   }
   .name {
     padding: 5px 5px 5px 10px;
+    text-align: center;
   }
 }
 </style>
