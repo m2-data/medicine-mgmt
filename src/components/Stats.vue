@@ -179,10 +179,10 @@ export default {
     }
   }  
     },
-    mounted() {
-      
+  //   mounted() {
+  //     console.log(this.Scode)
 
-  },
+  // },
   computed: {
     ...mapGetters([
       'countLinks',

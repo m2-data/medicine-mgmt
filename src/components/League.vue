@@ -54,6 +54,10 @@ export default {
       months: json.months
     }
   },
+  // mounted() {
+  //     console.log('this', this.code)
+
+  // },
   computed: {
     ...mapState([
       'title',
