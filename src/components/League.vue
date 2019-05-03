@@ -51,13 +51,10 @@ export default {
     return {
       newLink : '',
       name: '',
-      months: json.months
+      months: json.months,
+      linksLeague: json.data
     }
   },
-  // mounted() {
-  //     console.log('this', this.code)
-
-  // },
   computed: {
     ...mapState([
       'title',

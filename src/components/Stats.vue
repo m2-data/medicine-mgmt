@@ -48,10 +48,6 @@
                 </tr>
             </table>
             
-
-
-
-
           <!-- <h3 class="title">Disease Area: {{stat[0].disease_area}}</h3> -->
           <!-- <h4> drug{{ drugShow }} </h4>
           <h4 class="drugs good">Encouraged</h4>
@@ -117,11 +113,13 @@ export default {
       badDrug: [],
     }
   },
+  //created fires when page loaded, saves vars to localhost so that page displays the last visited value is page refreshed
   created (){
     //localStorage.removeItem('myEnc');
+    var isStateEmpty = true;
     for (var i = 0; i < this.links.length; i++){
       // this.surgName = this.links[i].practice_name
-      if (this.code == this.links[i].practice_name) {
+      if (this.code.trim() == this.links[i].practice_name.trim()) {
         this.surgName = this.links[i].practice_name
         this.encouraged = this.links[i].encouraged_spend
         this.discouraged = this.links[i].discouraged_spend
@@ -133,20 +131,16 @@ export default {
         localStorage.setItem('mySurgCode', this.Scode)
         localStorage.setItem('myPos', this.position)
         localStorage.setItem('myLastPos', this.lastposition)
-
-        // localStorage.setItem('myEnc', this.encouraged)
-        // localStorage.setItem('myDisc', this.discouraged)
-      // } else if (this.code == ''){
-      //   console.log('empty', this.surgName)
-      //   this.surgName = localStorage.getItem('myCode')
-      } else {
-        this.surgName = localStorage.getItem('myCode')
-        this.position = localStorage.getItem('myPos')
-        this.lastposition = localStorage.getItem('myLastPos')
-
-      }
+        isStateEmpty = false;
+      } 
     }
-  // console.log(druggies.surgeries[0])
+    //if vuex state emtpy reads vaules from localstorage
+    if (isStateEmpty == true){
+      this.surgName = localStorage.getItem('myCode')
+      this.position = localStorage.getItem('myPos')
+      this.lastposition = localStorage.getItem('myLastPos')
+    }
+    //gets address based on surgery code
     for (var i = 0; i < this.address.length; i++){
       if (this.Scode == this.address[i].SurgeryCode) {
         this.addr = this.address[i].Address2 + ', '
@@ -154,34 +148,29 @@ export default {
         this.addr += this.address[i].County + ', '
         this.addr += this.address[i].Postcode + ' '
         localStorage.setItem('codeForAddr', this.address[i].SurgeryCode)
-        // console.log('this' , this.Scode)
+
+      //if Scode is not loaded from states then load from localstorage
       } else if (this.Scode == ''){
         this.Scode = localStorage.getItem('codeForAddr')
-        // console.log(this.Scode)
       }
     }
-  for (var i = 0; i < druggies.surgeries.length; i++){
-    this.Scode = localStorage.getItem('codeForAddr')
-    if (this.Scode == druggies.surgeries[i].practice_code) {
-      this.drugShow = druggies.surgeries[i].encouraged
-      this.badDrug = druggies.surgeries[i].discouraged
-      //console.log(druggies.surgeries[i].practice_code, this.Scode, this.drugShow, this.badDrug)
-      for (var j = 0; j < this.drugShow.length; j++){
-        //this.drug = this.drugShow[j].drugname
-        this.spendOnDrug = this.drugShow[j].spend
-        //console.log(this.drugShow[j].spend, 'drugshow')
+    //gets Scode from storage then gets the drug details from json file
+    for (var i = 0; i < druggies.surgeries.length; i++){
+      this.Scode = localStorage.getItem('codeForAddr')
+      if (this.Scode == druggies.surgeries[i].practice_code) {
+        this.drugShow = druggies.surgeries[i].encouraged
+        this.badDrug = druggies.surgeries[i].discouraged
+        for (var j = 0; j < this.drugShow.length; j++){
+          this.spendOnDrug = this.drugShow[j].spend
+        }
+        for (var z = 0; z < this.badDrug.length; z++){
+          this.discuragedSpend = this.badDrug[z].spend
+        }
       }
-      for (var z = 0; z < this.badDrug.length; z++){
-        //this.badDrugName = this.badDrug[j].drugname
-        this.discuragedSpend = this.badDrug[z].spend
-        //console.log(this.badDrug[z].spend, 'baddrug', this.discuragedSpend)
-      }
-    }
-  }  
-    },
+    }  
+  },
   //   mounted() {
   //     console.log(this.Scode)
-
   // },
   computed: {
     ...mapGetters([
